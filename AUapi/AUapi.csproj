@@ -197,6 +197,10 @@
     <Content Include="App_Data\AUdb_log.ldf">
       <DependentUpon>AUdb.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\Persons_db.mdf" />
+    <Content Include="App_Data\Persons_db_log.ldf">
+      <DependentUpon>Persons_db.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
