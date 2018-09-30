@@ -10,7 +10,7 @@ namespace AUdependencies.Services
     public interface IServerService
     {
         Server Get(int id);
-        void Add();
+        void Add(Server server);
         void Update(Server server);
         void Delete(int id);
     }
