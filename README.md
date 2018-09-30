@@ -1,2 +1,1 @@
-# module-task-mvc-and-api
-homework
+# branch for working with models/mvc/api libs

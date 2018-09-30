@@ -48,12 +48,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Migrations\201809291638502_AddCompanyMigration.cs" />
+    <Compile Include="Migrations\201809291638502_AddCompanyMigration.Designer.cs">
+      <DependentUpon>201809291638502_AddCompanyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Purchase.cs" />
+    <Compile Include="Models\Server.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IServerService.cs" />
+    <Compile Include="Services\ServerService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <EmbeddedResource Include="Migrations\201809291638502_AddCompanyMigration.resx">
+      <DependentUpon>201809291638502_AddCompanyMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
