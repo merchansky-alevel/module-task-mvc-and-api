@@ -8,17 +8,21 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-@foreach(var book in Model)
+@if (Model != null)
 {
-    <div>
-        <hr/>
+    foreach (var book in Model)
+    {
+        <div>
+            <hr />
             <h1>@book.Name</h1>
             <h3>@book.Author</h3>
             <p>@book.Price</p>
             <a href="#">Buy</a>
-        <hr/>
-    </div>
+            <hr />
+        </div>
+    }
 }
+
 
 <div class="row">
     <div class="col-md-4">

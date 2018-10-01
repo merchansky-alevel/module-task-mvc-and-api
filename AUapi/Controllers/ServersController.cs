@@ -5,31 +5,32 @@ using System.Web.Http;
 
 namespace AUapi.Controllers
 {
-    public class ValuesController : ApiController
+    public class ServersController : ApiController
     {
-        // GET api/values
-        public Task<IEnumerable<Server>> Get()
+
+        // GET: api/Servers
+        public async Task<IEnumerable<Server>> Get() // work here:
         {
             return null;
         }
 
-        // GET api/values/5
+        // GET: api/Servers/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        // POST: api/Servers
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT: api/Servers/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE: api/Servers/5
         public void Delete(int id)
         {
         }

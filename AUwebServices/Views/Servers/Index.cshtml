@@ -1,0 +1,18 @@
+﻿@model IEnumerable<AUdependencies.Models.Server>
+@{
+    ViewBag.Title = "Servers";
+}
+
+<h2>Servers:</h2>
+
+@foreach (var server in Model)
+{
+    <div>
+        <hr />
+        <h1>@server.Name</h1>
+        <h3>@server.Domen</h3>
+        <p>@server.Type</p>
+        @Html.ActionLink("Edit", "EditServer", "Servers", new { Id = server.Id });
+        <hr />
+    </div>
+}
