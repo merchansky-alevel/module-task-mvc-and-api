@@ -1,29 +1,17 @@
-﻿using AUdependencies.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
+using AUdependencies.Models;
 using Newtonsoft.Json;
 
 namespace AUwebServices.Controllers
 {
     public class HomeController : Controller
     {
-        private HttpClient client = new HttpClient();
-        private string APIpath = Properties.Settings.Default.API;
-
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            IEnumerable<Book> books = null;
-
-            string json = await client.GetStringAsync($"{APIpath}/values");
-
-            books = JsonConvert.DeserializeObject<IEnumerable<Book>>(json);
-
-            return View(books);
+            return View();
         }
 
         public ActionResult About()

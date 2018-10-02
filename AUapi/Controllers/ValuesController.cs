@@ -1,11 +1,5 @@
-﻿using AUdependencies.Context;
-using AUdependencies.Models;
-using System;
+﻿using AUdependencies.Models;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -13,14 +7,10 @@ namespace AUapi.Controllers
 {
     public class ValuesController : ApiController
     {
-        private ApplicationContext db = new ApplicationContext();
-
         // GET api/values
-        public async Task<IEnumerable<Book>> Get()
+        public Task<IEnumerable<Server>> Get()
         {
-            IEnumerable<Book> books = await db.Books.ToListAsync();
-
-            return books;
+            return null;
         }
 
         // GET api/values/5
