@@ -11,7 +11,7 @@ namespace AUapi.Controllers
 
         // GET: api/Servers
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetAll()
         {
             var servers = _serverService.GetAll();
 
@@ -34,18 +34,18 @@ namespace AUapi.Controllers
 
         // POST: api/Servers
         [HttpPost]
-        public IHttpActionResult Post([FromBody]Server value)
+        public IHttpActionResult Post([FromBody]Server server)
         {
-            _serverService.Add(value);
+            _serverService.Add(server);
 
             return Ok();
         }
 
         // PUT: api/Servers/5
         [HttpPut]
-        public IHttpActionResult Put([FromBody]Server value)
+        public IHttpActionResult Put([FromBody]Server server)
         {
-            _serverService.Update(value);
+            _serverService.Update(server);
 
             return Ok();
         }
