@@ -1,38 +1,62 @@
 ﻿using AUdependencies.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using AUdependencies.Services;
 using System.Web.Http;
 
 namespace AUapi.Controllers
 {
+    [RoutePrefix("api/servers")]
     public class ServersController : ApiController
     {
+        private IServerService _serverService = new ServerService();
 
         // GET: api/Servers
-        public async Task<IEnumerable<Server>> Get() // work here:
+        [HttpGet]
+        public IHttpActionResult Get()
         {
-            return null;
+            var servers = _serverService.GetAll();
+
+            return Ok(servers);
         }
 
         // GET: api/Servers/5
-        public string Get(int id)
+        [HttpGet]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var server = _serverService.Get(id);
+
+            if (server == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(server);
         }
 
         // POST: api/Servers
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]Server value)
         {
+            _serverService.Add(value);
+
+            return Ok();
         }
 
         // PUT: api/Servers/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public IHttpActionResult Put([FromBody]Server value)
         {
+            _serverService.Update(value);
+
+            return Ok();
         }
 
         // DELETE: api/Servers/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
+            _serverService.Delete(id);
+
+            return Ok();
         }
     }
 }
