@@ -9,7 +9,7 @@ namespace AUdependencies.Services
 {
     public class ServerService : IServerService
     {
-        //private static string _path = @"C:\Users\evgen\Desktop\module-task-mvc-and-api\db.txt";
+        private static string _path = @"C:\Users\evgen\Desktop\module-task-mvc-and-api\db.txt";
 
         private static List<Server> _db = new List<Server>();
 
@@ -17,25 +17,27 @@ namespace AUdependencies.Services
         {
             _db.Add(new Server { Id = 1, Domen = "www.test.com", Name = "Test name", Type = ServerType.Gaming });
 
-            _db = JsonConvert.DeserializeObject<List<Server>>(File.ReadAllText(@"C:\Users\evgen\Desktop\module-task-mvc-and-api\db.txt"));
+            _db = JsonConvert.DeserializeObject<List<Server>>(File.ReadAllText(_path));
         }
 
         private void Save()
         {
             string productList = JsonConvert.SerializeObject(_db);
 
-            File.WriteAllText(@"C:\Users\evgen\Desktop\module-task-mvc-and-api\db.txt", _db.ToString());
+            File.WriteAllText(_path, _db.ToString());
         }
 
         private int GetMaxInt()
         {
+            const int seed = 1;
+
             if (_db != null && !_db.Any())
             {
-                return 0;
+                return 1;
             }
             else
             {
-                return _db.Max(x => x.Id) + 1;
+                return _db.Max(x => x.Id) + seed;
             }
         }
 
@@ -71,9 +73,7 @@ namespace AUdependencies.Services
         // GET:
         public IEnumerable<Server> GetAll()
         {
-            return _db
-                .OrderBy(x => x.Name)
-                .ToList();
+            return _db.OrderBy(x => x.Name).ToList();
         }
 
         // PUT:
